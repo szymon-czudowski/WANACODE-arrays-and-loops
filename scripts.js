@@ -1,8 +1,8 @@
 // Exercise 1 - getTheSmallestNumber function
 
 function getSmallestNumber(arr) {
-   const sortedArr = arr.slice().sort((a, b) => a - b);
-   return sortedArr[0];
+    const sortedArr = arr.slice().sort((a, b) => a - b);
+    return sortedArr[0];
 }
 
 getSmallestNumber([2, -5, 10, 1, 4]);
