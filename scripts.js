@@ -1,11 +1,25 @@
 // Exercise 1 - getTheSmallestNumber function
 
 function getSmallestNumber(arr) {
-        return Math.min(...arr);
+        const sortedArr = arr.slice().sort((a, b) => a - b);
+        return sortedArr[0];
 }
 
 getSmallestNumber([2, -5, 10, 1, 4]);
 getSmallestNumber([200, 25, 4, 123, 87]);
+
+function getSmallestNumberByLoop (arr) {
+        let smallestNumber = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+                if(arr[i] < smallestNumber ) {
+                        smallestNumber = arr[i]
+                }
+        }
+        return smallestNumber;
+}
+
+getSmallestNumberByLoop([2, -5, 10, 1, 4]);
+getSmallestNumberByLoop([200, 25, 4, 123, 87]);
 
 // Excercise 2 - write the getSquaredNumbers function - don't modify the array passed as an argument
 
@@ -20,7 +34,7 @@ function getSquaredNumbers(arr) {
 // Excercise 3 - write the getReversedString function
 
 function getReversedString(str) {
-        return str.split("").reverse().join("");
+        return str.split("").reverse();
 }
 getReversedString("Hello")
 
@@ -59,25 +73,25 @@ function getYoungestPerson(people) {
         if (people.length === 0) {
                 return null;
         }
-        let youngestAge = people[0].age;
+        let youngestPersonAge = people[0].age;
         for (let i = 1; i < people.length; i++) {
-                if (people[i].age < youngestAge) {
-                        youngestAge = people[i].age;
+                if (people[i].age < youngestPersonAge) {
+                        youngestPersonAge = people[i].age;
                 }
         }
-        return youngestAge;
+        return youngestPersonAge;
 }
 function getOldestPerson(people) {
         if (people.length === 0) {
                 return null;
         }
-        let oldestAge = people[0].age;
+        let oldestPersonAge = people[0].age;
         for (let i = 1; i < people.length; i++) {
-                if (people[i].age > oldestAge) {
-                        oldestAge = people[i].age;
+                if (people[i].age > oldestPersonAge) {
+                        oldestPersonAge = people[i].age;
                 }
         }
-        return oldestAge;
+        return oldestPersonAge;
 }
 function getAgeDifference(people) {
         const youngestAge = getYoungestPerson(people);
