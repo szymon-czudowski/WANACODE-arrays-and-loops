@@ -44,7 +44,7 @@ getReversedString("Hello")
 
 function isPalindrome(str) {
         function getReversedString(str) {
-                return str.split("").reverse().join("");
+                return str.split("").reverse();
         }
         return getReversedString(str.toLowerCase()) === str.toLowerCase();
 }
@@ -69,33 +69,32 @@ function countLetters(text) {
 // Inside of the getAgeDifference function call the getYoungestPerson
 // and getOldestPerson functions that you write yourself.
 // Function to get the youngest person's age
-function getYoungestPerson(people) {
-        if (people.length === 0) {
-                return null;
-        }
-        let youngestPersonAge = people[0].age;
-        for (let i = 1; i < people.length; i++) {
-                if (people[i].age < youngestPersonAge) {
-                        youngestPersonAge = people[i].age;
-                }
-        }
-        return youngestPersonAge;
-}
-function getOldestPerson(people) {
-        if (people.length === 0) {
-                return null;
-        }
-        let oldestPersonAge = people[0].age;
-        for (let i = 1; i < people.length; i++) {
-                if (people[i].age > oldestPersonAge) {
-                        oldestPersonAge = people[i].age;
-                }
-        }
-        return oldestPersonAge;
-}
+
 function getAgeDifference(people) {
-        const youngestAge = getYoungestPerson(people);
-        const oldestAge = getOldestPerson(people);
+        const youngestAge = function getYoungestPerson(people) {
+                if (people.length === 0) {
+                        return null;
+                }
+                let youngestPersonAge = people[0].age;
+                for (let i = 1; i < people.length; i++) {
+                        if (people[i].age < youngestPersonAge) {
+                                youngestPersonAge = people[i].age;
+                        }
+                }
+                return youngestPersonAge;
+        }
+        const oldestAge = function getOldestPerson(people) {
+                if (people.length === 0) {
+                        return null;
+                }
+                let oldestPersonAge = people[0].age;
+                for (let i = 1; i < people.length; i++) {
+                        if (people[i].age > oldestPersonAge) {
+                                oldestPersonAge = people[i].age;
+                        }
+                }
+                return oldestPersonAge;
+        }
 
         if (youngestAge !== null && oldestAge !== null) {
                 return oldestAge - youngestAge;
