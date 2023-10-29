@@ -70,35 +70,34 @@ function countLetters(text) {
 // and getOldestPerson functions that you write yourself.
 // Function to get the youngest person's age
 
-function getAgeDifference(people) {
-        const youngestAge = function getYoungestPerson(people) {
-                if (people.length === 0) {
-                        return null;
-                }
-                let youngestPersonAge = people[0].age;
-                for (let i = 1; i < people.length; i++) {
-                        if (people[i].age < youngestPersonAge) {
-                                youngestPersonAge = people[i].age;
-                        }
-                }
-                return youngestPersonAge;
-        }
-        const oldestAge = function getOldestPerson(people) {
-                if (people.length === 0) {
-                        return null;
-                }
-                let oldestPersonAge = people[0].age;
-                for (let i = 1; i < people.length; i++) {
-                        if (people[i].age > oldestPersonAge) {
-                                oldestPersonAge = people[i].age;
-                        }
-                }
-                return oldestPersonAge;
-        }
-
-        if (youngestAge !== null && oldestAge !== null) {
-                return oldestAge - youngestAge;
-        } else {
+function getYoungestPersonAge(people) {
+        if (people.length === 0) {
                 return null;
         }
+        let youngestPersonAge = people[0].age;
+        for (let i = 0; i < people.length; i++) {
+                if (people[i].age < youngestAge) {
+                        youngestAge = people[i].age;
+                }
+        }
+        return youngestPersonAge;
+}
+
+function getOldestPersonAge(people) {
+        if (people.length === 0) {
+                return null;
+        }
+        let oldestPersonAge = people[0].age;
+
+        for (let i = 0; i < people.length; i++) {
+                if (people[i].age > oldestAge) {
+                        oldestPersonAge = people[i].age;
+                }
+        }
+        return oldestPersonAge;
+}
+function getPeopleAgeDifference(people) {
+        const youngestAge = getYoungestPersonAge(people);
+        const oldestAge = getOldestPersonAge(people);
+        return oldestAge - youngestAge;
 }
