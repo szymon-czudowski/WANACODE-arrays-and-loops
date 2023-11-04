@@ -36,17 +36,13 @@ function getSquaredNumbers(arr) {
 function getReversedString(str) {
         return str.split("").reverse();
 }
-getReversedString("Hello")
 
 // Excercise 4 - Write the isPalindrome  function.
 // Inside the isPalindrome  function, call the getReversedString  function.
 // It should be case-insensitive and shouldn't take spaces into consideration.
 
 function isPalindrome(str) {
-        function getReversedString(str) {
-                return str.split("").reverse();
-        }
-        return getReversedString(str.toLowerCase()) === str.toLowerCase();
+        return str.toLowerCase() === str.toLowerCase().split("").reverse().join("");
 }
 
 // Excercise 5 - Write the countLetters function.
@@ -259,7 +255,8 @@ function sum (numbers) {
         let arraySum = 0;
         for (let i = 0; i < numbers.length; i++) {
                 arraySum += numbers[i];
-        } return arraySum;
+        }
+        return arraySum;
 
 }
 
